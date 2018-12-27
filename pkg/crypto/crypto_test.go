@@ -1,7 +1,7 @@
 package crypto_test
 
 import (
-	"go_web_server/pkg/crypto"
+	"go_rest_api/pkg/crypto"
 	"testing"
 )
 
@@ -13,7 +13,7 @@ func Test_Hash(t *testing.T) {
 
 func should_be_able_to_hash_and_compare_strings(t *testing.T) {
 	//Arrange
-	c := crypto.Hash{}
+	c := crypto.Crypto{}
 	testInput := "testInput"
 
 	//Act
@@ -34,7 +34,7 @@ func should_be_able_to_hash_and_compare_strings(t *testing.T) {
 
 func should_return_error_when_comparing_unequal_hashes(t *testing.T) {
 	//Arrange
-	c := crypto.Hash{}
+	c := crypto.Crypto{}
 	testInput := "testInput"
 	testCompare := "testCompare"
 
@@ -56,7 +56,7 @@ func should_return_error_when_comparing_unequal_hashes(t *testing.T) {
 
 func should_generate_a_different_salt_each_time(t *testing.T) {
 	//Arrange
-	c := crypto.Hash{}
+	c := crypto.Crypto{}
 	testInput := "testInput"
 
 	hash1, _ := c.Generate(testInput)

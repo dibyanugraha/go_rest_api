@@ -45,12 +45,12 @@ func createUser_should_insert_user_into_mongo(t *testing.T) {
 
   //Assert
   if(err != nil) {
-    t.Error("Unable to create user: %s", err)
+    t.Errorf("Unable to create user: `%s`", err)
   }
 
   _, resultUser := userService.GetUserByUsername(testUsername)
 
   if(resultUser.Username != user.Username) {
-    t.Error("Incorrect Username. Expected `%s`, Got: `%s`", testUsername, resultUser.Username)
+    t.Errorf("Incorrect Username. Expected `%s`, Got: `%s`", testUsername, resultUser.Username)
   }
 }
